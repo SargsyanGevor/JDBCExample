@@ -4,6 +4,7 @@ import jdbcexample.manager.UserManager;
 import jdbcexample.model.User;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class Main {
 
@@ -12,7 +13,14 @@ public class Main {
         UserManager userManager = new UserManager();
 
         try {
-            userManager.addUser(new User("poxos", "poxosyan", "poxos@mail.ru", "poxosik"));
+//            User user = new User("Varazdat", "poxosyan", "poxos@mail.ru", "poxosik");
+//            userManager.addUser(user);
+//            System.out.println(user);
+            List<User> allUsers = userManager.getAllUsers();
+            for (User user : allUsers) {
+                System.out.println(user);
+
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
